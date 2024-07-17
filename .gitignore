@@ -3,3 +3,37 @@ venv
 /venv/*
 /__pycache__
 .env
+
+## Frontend gitignore
+## Reminder for Billy: because this main gitignore is a directory higher, certain frontend files/folders
+## need to be fixed manually. For now that is just ./node_modules but if the repo suddenly balloons in size
+## you'll know why
+## This will almost certainly break some things
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+to-do-frontend/node_modules
+to-do-frontend/.vite
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+## Frontend gitignore ends
