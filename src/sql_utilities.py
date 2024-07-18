@@ -71,3 +71,27 @@ class PassInformation:
         except Exception as error:
             print(f"--ERROR-- Could not retrieve tasks: {error}")
             return []
+
+    def __delete_tasks__(self, task_id):
+        """
+        Deletes task from list based on task_id.
+
+            Parameters: task_id, integer of task to delete
+
+            Return: N/A
+
+        """
+
+        try:
+            task = self.db_cursor.execute(
+                "SELECT * FROM tasks WHERE id = ?", (task_id,)
+            )
+            if not task:
+                raise Exception
+
+            self.db_cursor.execute("DELETE FROM tasks WHERE id = ?", (task_id,))
+            self.db.commit()
+            return {"task": f"task {task_id} removed"}
+
+        except Exception as error:
+            print(f"--ERROR-- Could not delete tasks: {error}")
